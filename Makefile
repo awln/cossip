@@ -21,11 +21,11 @@ libcossip.o: ${COSSIP_OBJS}
 	ld -r -o $@ ${COSSIP_OBJS}
 
 # Compile an application program
-# app: app.cpp libthread.o libcpu.o
-	# ${CC} -o $@ $^ -ldl -pthread
+app: app.cpp libthread.o
+	${CC} -o $@ $^ -ldl -pthread
 
 test%: $@ libcossip.o
-	${CC} -o $(basename $@) $@ $^ -ldl -pthread
+	${CC} -o $(basename $@) $@ $^ -ldl
 
 # Generic rules for compiling a source file to an object file
 %.o: %.cpp
