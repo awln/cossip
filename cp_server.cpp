@@ -14,6 +14,10 @@ cp_server::cp_server(){
 
 }
 
+cp_server::~cp_server(){
+
+}
+
 void cp_server::start(){
     int server_fd = socket(AF_INET, SOCK_STREAM, 0);
     int option = 1;
