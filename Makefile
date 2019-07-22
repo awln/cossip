@@ -21,7 +21,7 @@ libcossip.o: ${COSSIP_OBJS}
 	ld -r -o $@ ${COSSIP_OBJS}
 
 # Compile an application program
-app: app.cpp libthread.o
+app: app.cpp libcossip.o
 	${CC} -o $@ $^ -ldl
 
 test%: $@ libcossip.o
