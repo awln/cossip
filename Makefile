@@ -13,7 +13,7 @@ TEST_EXECS= $(basename $(TEST_SOURCES))
 TEST_SOURCES= test/test*.cpp
 
 # Generate 
-all: libcossip.o 
+all: libcossip.o app
 # all: app
 
 # Compile the thread library and tag this compilation
@@ -22,7 +22,7 @@ libcossip.o: ${COSSIP_OBJS}
 
 # Compile an application program
 app: app.cpp libthread.o
-	${CC} -o $@ $^ -ldl -pthread
+	${CC} -o $@ $^ -ldl
 
 test%: $@ libcossip.o
 	${CC} -o $(basename $@) $@ $^ -ldl
